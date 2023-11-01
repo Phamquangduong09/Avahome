@@ -10,7 +10,12 @@
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="https://avahome.com.vn/xmlrpc.php"/>
 
-    <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+    <script>
+        function addJsClassToHtml() {
+    var html = document.documentElement;
+    html.className = html.className.replace(/\bno-js\b/, 'js');
+}
+addJsClassToHtml();
     </script>
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -4811,54 +4816,39 @@
 
 
 <script>
-    jQuery( "document" ).ready(function() {
-      jQuery(".home-sec-2 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">A</span>');
-      jQuery(".home-sec-2 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">B</span>');
-      jQuery(".home-sec-2 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">O</span>');
-      jQuery(".home-sec-2 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">U</span>');
-      jQuery(".home-sec-2 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">T</span>');
-    });
-    jQuery( "document" ).ready(function() {
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">S</span>');
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">K</span>');
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">I</span>');
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">L</span>');
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">L</span>');
-      jQuery(".home-sec-4 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">S</span>');
-    });
-    jQuery( "document" ).ready(function() {
-      jQuery(".home-sec-5 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">T</span>');
-      jQuery(".home-sec-5 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">E</span>');
-      jQuery(".home-sec-5 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">A</span>');
-      jQuery(".home-sec-5 .bg-fill").append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">M</span>');
-    });
+    jQuery(document).ready(function() {
+    function appendLetters(container, letters) {
+        letters.forEach(function(letter) {
+            container.append('<span class="letter" style="opacity: 1; transform: translateY(0px) translateZ(0px);">' + letter + '</span>');
+        });
+    }
 
-    jQuery("document").ready(function(){
-      jQuery(".sec-3-col-1").mouseover(function(){
-        jQuery(".sec-3-col-1").addClass("active");
-      });
-      jQuery(".sec-3-col-1").mouseout(function(){
-        jQuery(".sec-3-col-1").removeClass("active");
-      });
-      jQuery(".sec-3-col-2").mouseover(function(){
-        jQuery(".sec-3-col-2").addClass("active");
-      });
-      jQuery(".sec-3-col-2").mouseout(function(){
-        jQuery(".sec-3-col-2").removeClass("active");
-      });
-      jQuery(".sec-3-col-3").mouseover(function(){
-        jQuery(".sec-3-col-3").addClass("active");
-      });
-      jQuery(".sec-3-col-3").mouseout(function(){
-        jQuery(".sec-3-col-3").removeClass("active");
-      });
-      jQuery(".sec-3-row").mouseover(function(){
-        jQuery(".sec-3-row").addClass("onhover");
-      });
-      jQuery(".sec-3-row").mouseout(function(){
-        jQuery(".sec-3-row").removeClass("onhover");
-      });
-    });
+    function addMouseOverOutEvents(elements) {
+        elements.mouseover(function() {
+            elements.addClass("active");
+        });
+        elements.mouseout(function() {
+            elements.removeClass("active");
+        });
+    }
+
+    var homeSec2Container = jQuery(".home-sec-2 .bg-fill");
+    var homeSec4Container = jQuery(".home-sec-4 .bg-fill");
+    var homeSec5Container = jQuery(".home-sec-5 .bg-fill");
+    var sec3Col1 = jQuery(".sec-3-col-1");
+    var sec3Col2 = jQuery(".sec-3-col-2");
+    var sec3Col3 = jQuery(".sec-3-col-3");
+    var sec3Row = jQuery(".sec-3-row");
+
+    appendLetters(homeSec2Container, ["A", "B", "O", "U", "T"]);
+    appendLetters(homeSec4Container, ["S", "K", "I", "L", "L", "S"]);
+    appendLetters(homeSec5Container, ["T", "E", "A", "M"]);
+
+    addMouseOverOutEvents(sec3Col1);
+    addMouseOverOutEvents(sec3Col2);
+    addMouseOverOutEvents(sec3Col3);
+    addMouseOverOutEvents(sec3Row);
+});
 
 </script>
 <!-- if gom all in one show -->
